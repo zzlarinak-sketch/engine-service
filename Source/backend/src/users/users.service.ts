@@ -5,6 +5,7 @@ export interface User {
   id: number;
   name: string;
   email: string;
+  age?: number;
 }
 
 @Injectable()
@@ -14,6 +15,7 @@ export class UsersService {
       id: 1,
       name: 'Arina',
       email: 'arina@example.com',
+      age: 20,
     },
   ];
 
