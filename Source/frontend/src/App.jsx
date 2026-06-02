@@ -187,7 +187,7 @@ function App() {
           volumeLiters: Number(engineForm.volumeLiters),
           serialNumber: engineForm.serialNumber,
           status: engineForm.status,
-          clientId: Number(engineForm.clientId),
+          ...(isEditing ? {} : { clientId: Number(engineForm.clientId) }),
         }),
       });
 
@@ -460,20 +460,18 @@ function App() {
                     </label>
                   )}
 
-                  {user.role === 'admin' && (
-                    <label>
-                      ID клиента
-                      <select
-                        name="clientId"
-                        value={engineForm.clientId}
-                        onChange={handleEngineFormChange}
-                      >
-                        <option value="1">1 — Иван Петров</option>
-                        <option value="2">2 — Анна Смирнова</option>
-                        <option value="3">3 — ООО АвтоПарк</option>
-                      </select>
-                    </label>
-                  )}
+                  {user.role === 'admin' && editingEngineId === null && (
+  <label>
+    ID клиента
+    <input
+      type="number"
+      name="clientId"
+      value={engineForm.clientId}
+      onChange={handleEngineFormChange}
+      placeholder="Введите ID клиента"
+    />
+  </label>
+)}
                 </div>
 
                 {engineFormError && <div className="error">{engineFormError}</div>}

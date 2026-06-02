@@ -4,11 +4,11 @@ import { IsEmail, IsInt, IsNotEmpty, IsOptional, IsString, Min } from 'class-val
 export class CreateUserDto {
   @IsString({ message: 'Имя должно быть строкой' })
   @IsNotEmpty({ message: 'Имя обязательно для заполнения' })
-  name: string;
+  name!: string;
 
   @IsEmail({}, { message: 'Email должен быть корректным адресом электронной почты' })
   @IsNotEmpty({ message: 'Email обязателен для заполнения' })
-  email: string;
+  email!: string;
 
   @IsOptional()
   @Type(() => Number)
