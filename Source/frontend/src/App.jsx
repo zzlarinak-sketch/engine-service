@@ -461,17 +461,17 @@ function App() {
                   )}
 
                   {user.role === 'admin' && editingEngineId === null && (
-  <label>
-    ID клиента
-    <input
-      type="number"
-      name="clientId"
-      value={engineForm.clientId}
-      onChange={handleEngineFormChange}
-      placeholder="Введите ID клиента"
-    />
-  </label>
-)}
+                    <label>
+                      ID клиента
+                      <input
+                          type="number"
+                          name="clientId"
+                          value={engineForm.clientId}
+                          onChange={handleEngineFormChange}
+                          placeholder="Введите ID клиента"
+                      />
+                    </label>
+                  )}
                 </div>
 
                 {engineFormError && <div className="error">{engineFormError}</div>}
